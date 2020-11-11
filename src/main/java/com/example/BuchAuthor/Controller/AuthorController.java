@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value= "/author/save", method = RequestMethod.POST)
-    public String saveArticle(@ModelAttribute("author") Author author)
+    public String saveAuthor(@ModelAttribute("author") Author author)
     {
         service.saveAuthor(author);
         return null;
@@ -57,6 +58,15 @@ public class AuthorController {
     {
         servicebuch.saveBuch(buch);
         return null;
+    }
+
+    @PutMapping(path = "/editauthor", consumes = "application/json", produces = "application/json")
+    public String editAuthor(@RequestBody Author author)
+    {
+        Long id = author.getId();
+        service.editAuthor(id, author);
+
+        return "Author geändert";
     }
 
 }

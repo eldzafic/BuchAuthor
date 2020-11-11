@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -36,6 +37,14 @@ public class AuthorService {
     public void saveAuthor(Author author)
     {
         repo.save(author);
+    }
+
+    public void editAuthor(Long id, Author author)
+    {
+        Optional<Author> a1 = repo.findById(id);
+        Author a2 = a1.get();
+        a2.setName(author.getName());
+        repo.save(a2);
     }
 
 
