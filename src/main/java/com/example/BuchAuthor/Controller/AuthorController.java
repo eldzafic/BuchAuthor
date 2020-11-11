@@ -69,4 +69,13 @@ public class AuthorController {
         return "Author geändert";
     }
 
+    @PutMapping(path = "/editbuch", consumes = "application/json", produces = "application/json")
+    public String editBuch(@RequestBody Buch buch)
+    {
+        Long id = buch.getId();
+        servicebuch.editBuch(id, buch);
+
+        return "Buch geändert";
+    }
+
 }

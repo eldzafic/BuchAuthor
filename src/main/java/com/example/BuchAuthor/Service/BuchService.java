@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -31,6 +32,14 @@ public class BuchService {
     public void saveBuch(Buch buch)
     {
         repo.save(buch);
+    }
+
+    public void editBuch(Long id, Buch buch)
+    {
+        Optional<Buch> b1 = repo.findById(id);
+        Buch b2 = b1.get();
+        b2.setTitel(buch.getTitel());
+        repo.save(b2);
     }
 
 
