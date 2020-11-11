@@ -21,6 +21,12 @@ public class Buch {
     @ManyToOne
     @JoinColumn(name = "author_id")
     @JsonIgnore
-    private Author author;
+    private Author writer;
+
+    public Buch(String titel, Author author) {
+        this.titel = titel;
+        this.writer = author;
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.BuchAuthor.Domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,15 @@ public class Author {
     )
 
     private List<Buch> buecher = new ArrayList<>();
+
+    public Author(@JsonProperty("id") Long id, @JsonProperty("name") String name)
+    {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Author(String name)
+    {
+        this.name = name;
+    }
 }
