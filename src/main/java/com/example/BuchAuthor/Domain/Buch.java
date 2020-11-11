@@ -1,15 +1,9 @@
 package com.example.BuchAuthor.Domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Buch {
 
@@ -21,12 +15,40 @@ public class Buch {
     @ManyToOne
     @JoinColumn(name = "author_id")
     @JsonIgnore
-    private Author writer;
+    private Author author;
 
-    public Buch(String titel, Author author) {
+    public Buch(String titel, Author writer) {
         this.titel = titel;
-        this.writer = author;
+        this.author = writer;
     }
 
+    public Buch() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitel() {
+        return titel;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitel(String titel) {
+        this.titel = titel;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 }
+
+

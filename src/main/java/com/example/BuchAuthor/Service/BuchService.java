@@ -12,30 +12,25 @@ import java.util.List;
 
 
 @Service
-public class AuthorService {
+public class BuchService {
 
 
     @Autowired
-    private AuthorRepository repo;
+    private BuchRepository repo;
 
-    AuthorService()
-    {
-
-    }
-
-    public List<Author> listAuthor()
+    public List<Buch> listBuch()
     {
         return repo.findAll();
     }
 
-    public void delete(Author author)
+    public void delete(Buch buch)
     {
-        repo.delete(author);
+        repo.delete(buch);
     }
 
-    public void saveAuthor(Author author)
+    public void saveBuch(Buch buch)
     {
-        repo.save(author);
+        repo.save(buch);
     }
 
 
