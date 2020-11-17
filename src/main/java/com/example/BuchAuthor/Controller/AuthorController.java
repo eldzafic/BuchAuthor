@@ -14,6 +14,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthorController {
 
 
@@ -32,6 +33,9 @@ public class AuthorController {
     {
         return service.listAuthor();
     }
+
+    @GetMapping("/bucher")
+    public List<Buch> getAllBucher(){return servicebuch.listBuch();}
 
     @GetMapping("/{id}")
     public Author authorById(@PathVariable(name = "id") Author test)

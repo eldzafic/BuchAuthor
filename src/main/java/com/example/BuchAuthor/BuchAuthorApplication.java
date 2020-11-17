@@ -20,12 +20,12 @@ public class BuchAuthorApplication {
 
 
 		Author a1 = new Author("Elmedin");
-		Buch b1 = new Buch("Ein Buch", a1);
-		Buch b2 = new Buch("Ein zweites Buch", a1);
+		Buch b1 = new Buch("Elmedin´s erstes Buch", a1);
+		Buch b2 = new Buch("Elmedin´s zweites Buch", a1);
 
 		Author a2 = new Author("Stefan");
-		Buch b3 = new Buch("Buch 1 Stefan", a2);
-		Buch b4 = new Buch("Buch 2 Stefan", a2);
+		Buch b3 = new Buch("Stefan´s erstes Buch", a2);
+		Buch b4 = new Buch("Stefan´s zweites Buch", a2);
 
 		List<Buch> buecher = Arrays.asList(b1, b2);
 		a1.setBuecher(buecher);
